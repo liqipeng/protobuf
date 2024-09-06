@@ -272,6 +272,12 @@ constexpr bool PerformDebugChecks() {
 #endif
 }
 
+// Force copy the default string to a string field so that non-optimized builds
+// have harder-to-rely-on address stability.
+constexpr bool DebugHardenForceCopyDefaultString() {
+  return false;
+}
+
 constexpr bool DebugHardenForceCopyInRelease() {
   return false;
 }
