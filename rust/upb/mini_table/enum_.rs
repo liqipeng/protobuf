@@ -5,10 +5,10 @@
 // license that can be found in the LICENSE file or at
 // https://developers.google.com/open-source/licenses/bsd
 
-pub mod enum_;
-pub mod field;
-pub mod message;
-
-pub use enum_::MiniTableEnum;
-pub use field::MiniTableField;
-pub use message::MiniTable;
+#[repr(C)]
+pub struct MiniTableEnum {
+    mask_limit: u32,
+    value_count: u32,
+    // TODO: We need to figure out how to model the flexible array member in Rust.
+    // data: [u32],
+}
